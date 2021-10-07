@@ -1,1 +1,1 @@
-[Первый блок](/screenshots)
+[Первый блок](screenshots)
