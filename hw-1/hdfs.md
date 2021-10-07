@@ -22,13 +22,11 @@ hdfs dfs -cp /local_file.txt /new_location
 
 ## Часть 3
 
-1. 
-hdfs dfs -setrep -w 1 /local_file.txt
+1. hdfs dfs -setrep -w 1 /local_file.txt
 hdfs dfs -setrep -w 3 /local_file.txt
 Уменьшение фактора репликации занимает больше времени, даже варнинг выскакивает
 2. hdfs fsck /local_file.txt -files -blocks -locations
-3. 
-Из предыдущей команды получили:
+3. Из предыдущей команды получили:
 "0. BP-683595759-172.19.0.2-1632881558737:blk_1073741843_1019 len=30 Live_repl=3"
 [DatanodeInfoWithStorage[172.19.0.3:9866,DS-62c1b255-d2f6-4036-9904-087c51fefa58,DISK], 
 DatanodeInfoWithStorage[172.19.0.8:9866,DS-ff908ab1-ff76-4a4c-96e3-d4aef8e13542,DISK], 
