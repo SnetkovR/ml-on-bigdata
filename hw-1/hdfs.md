@@ -10,22 +10,19 @@
 
 ## Часть 2
 
-1. 
-mkdir local_dir
+1. mkdir local_dir
 hdfs dfs -put local_dir/ /
-2. 
-echo "Transfered from local to hdfs" > local_file.txt
+2. echo "Transfered from local to hdfs" > local_file.txt
 hdfs dfs -put local_file.txt /
 hdfs dfs -cat /local_file.txt
 3. hdfs dfs -tail /local_file.txt
 4. hdfs dfs -head /local_file.txt
-5. 
-hdfs dfs -mkdir /new_location
+5. hdfs dfs -mkdir /new_location
 hdfs dfs -cp /local_file.txt /new_location
 
 ## Часть 3
 
-. 
+1. 
 hdfs dfs -setrep -w 1 /local_file.txt
 hdfs dfs -setrep -w 3 /local_file.txt
 Уменьшение фактора репликации занимает больше времени, даже варнинг выскакивает
