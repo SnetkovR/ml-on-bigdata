@@ -21,4 +21,4 @@ chunk_mean = _sum / _count
 chunk_var = square / _count - chunk_mean * chunk_mean
 
 # В целом, ключ добавлять не обязатально, т.к. у нас 1 редьюсер
-print(OUT_SEP.join([str(1), str(_count), str(chunk_mean), str(chunk_var)]))
+print(OUT_SEP.join([str(_count), str(chunk_mean), str(chunk_var)]))

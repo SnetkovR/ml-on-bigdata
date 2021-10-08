@@ -6,7 +6,7 @@ mean, var, count = 0, 0, 0
 
 for line in sys.stdin:
     line = line.strip()
-    _, ck, mk, vk = line.split(SEP, 3)
+    ck, mk, vk = line.split(SEP, 2)
     try:
         ck = int(ck)
         mk = float(mk)
