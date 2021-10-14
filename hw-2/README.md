@@ -1,6 +1,6 @@
 ## Первый блок
 [Пруфы поднятой hue и подключения к хайву](screenshots)  
-Коннекты с помощью beeline и python драйвера
+Коннекты с помощью [beeline](screenshots/beeline.png) и [python драйвера](screenshots/python.png)
 ## Второй блок
 [Создание таблицы](create_table.hql)
 1. Исполнитель с максимальным числом скробблов [скрипт](task_a.hql) [ответ](answer_a)
