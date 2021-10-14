@@ -1,14 +1,14 @@
 with art as (
     select artist_lastfm, listeners_lastfm, tag
     from artists_ex
-    LATERAL VIEW explode(tags_lastfm) tag AS tag
+    lateral view explode(tags_lastfm) tag AS tag
 ),
 popular_tags as (
-    SELECT tag, count(tag) as populatiry
-    FROM (select explode(tags_lastfm) as tag from artists_ex) tags
-    GROUP BY tag
-    ORDER BY populatiry desc
-    LIMIT 10
+    select tag, count(tag) as populatiry
+    from (select explode(tags_lastfm) as tag from artists_ex) tags
+    group by tag
+    order by populatiry desc
+    limit 10
 )
 select distinct artist_lastfm, listeners_lastfm
 from art
