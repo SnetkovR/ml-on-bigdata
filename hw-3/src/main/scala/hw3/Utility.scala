@@ -47,9 +47,11 @@ object Utility {
       }
       val lr = new LinearRegression(logger)
       lr.fit(featuresTrain, targetTrain, epochs = 250, learningRate = 0.001)
-      val predict = lr.predict(featuresTest)
-      val mae_ = mae(predict, targetTest)
-      logger.info(f"MAE train: $mae_%.2f on fold $fold")
+      val maeTrain = mae(lr.predict(featuresTrain), targetTrain)
+      logger.info(f"MAE train: $maeTrain%.2f on fold $fold")
+      val maeTest = mae(lr.predict(featuresTest), targetTest)
+      logger.info(f"MAE test: $maeTest%.2f on fold $fold")
+
 
       prev_size = size
       fold += 1
