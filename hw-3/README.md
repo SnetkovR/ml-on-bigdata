@@ -1,6 +1,6 @@
 # Linear Regression on  Scala
 
-- Принимает на вход csv файлы для трейна и теста. Тренировочные датасеты в файлах [boston-train.csv](boston-train.csv) и [boston-test.csv](boston-test.csv) соответственно
+- Принимает на вход csv файлы для трейна и теста. Тренировочные датасеты в файлах [boston-train.csv](boston-train.csv) и [boston-test.csv](boston-test.csv) соответственно. [source](https://www.kaggle.com/fedesoriano/the-boston-houseprice-data)
 - Результаты лежат в файлах [out_train.csv](out_train.csv) и [out_test.csv](out_test.csv)
 - Процесс обучения по эпохам в файле [linear_regression.log](linear_regression.log)
 - Сперва делается CV (с нормировкой по "обучающей" части), потом делается обычное обучение (здесь тоже нормируется трейн) и предикт на тесте (тест нормируется по статистикам с трейна).
