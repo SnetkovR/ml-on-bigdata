@@ -1,0 +1,936 @@
+{
+  "paragraphs": [
+    {
+      "text": "spark",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:06:53.088",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@13e4a26e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636257579478_619872071",
+      "id": "paragraph_1636257579478_619872071",
+      "dateCreated": "2021-11-07 03:59:39.478",
+      "dateStarted": "2021-11-07 04:06:53.137",
+      "dateFinished": "2021-11-07 04:07:09.634",
+      "status": "FINISHED"
+    },
+    {
+      "text": "// Предзагрузили данные в контейнер\nvar data \u003d spark.read.option(\"header\", \"true\")\n    .option(\"inferSchema\", \"true\")\n    .option(\"sep\", \",\").csv(\"/mnt/tripadvisor_hotel_reviews.csv\")\n\ndata \u003d data.select(\"Review\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:08:03.799",
+      "progress": 50,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [Review: string]\ndata: org.apache.spark.sql.DataFrame \u003d [Review: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258013132_248137161",
+      "id": "paragraph_1636258013132_248137161",
+      "dateCreated": "2021-11-07 04:06:53.132",
+      "dateStarted": "2021-11-07 04:08:03.818",
+      "dateFinished": "2021-11-07 04:08:09.386",
+      "status": "FINISHED"
+    },
+    {
+      "text": "data.head()",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:08:27.431",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Row\u001b[0m \u003d [nice hotel expensive parking got good deal stay hotel anniversary, arrived late evening took advice previous reviews did valet parking, check quick easy, little disappointed non-existent view room room clean nice size, bed comfortable woke stiff neck high pillows, not soundproof like heard music room night morning loud bangs doors opening closing hear people talking hallway, maybe just noisy neighbors, aveda bath products nice, did not goldfish stay nice touch taken advantage staying longer, location great walking distance shopping, overall nice experience having pay 40 parking night,  ]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258083817_610589212",
+      "id": "paragraph_1636258083817_610589212",
+      "dateCreated": "2021-11-07 04:08:03.818",
+      "dateStarted": "2021-11-07 04:08:27.449",
+      "dateFinished": "2021-11-07 04:08:27.789",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val clearData \u003d data.na.drop(\"all\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:08:49.296",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mclearData\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [Review: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258102852_468071844",
+      "id": "paragraph_1636258102852_468071844",
+      "dateCreated": "2021-11-07 04:08:22.852",
+      "dateStarted": "2021-11-07 04:08:49.313",
+      "dateFinished": "2021-11-07 04:08:49.576",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Приводим к нижнему регистру",
+      "text": "val lowerData \u003d clearData.withColumn(\"Review\", lower(col(\"Review\")))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:10:41.295",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mlowerData\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [Review: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258129311_519721577",
+      "id": "paragraph_1636258129311_519721577",
+      "dateCreated": "2021-11-07 04:08:49.311",
+      "dateStarted": "2021-11-07 04:09:10.838",
+      "dateFinished": "2021-11-07 04:09:11.140",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val words \u003d lowerData.withColumn(\"Review\", split(col(\"Review\"), \"\\\\W+\"))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:11:35.731",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mwords\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [Review: array\u003cstring\u003e]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258150837_44651971",
+      "id": "paragraph_1636258150837_44651971",
+      "dateCreated": "2021-11-07 04:09:10.838",
+      "dateStarted": "2021-11-07 04:11:35.747",
+      "dateFinished": "2021-11-07 04:11:36.006",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val sentences \u003d words.withColumn(\"sentence_id\", monotonically_increasing_id())",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:12:12.630",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msentences\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [Review: array\u003cstring\u003e, sentence_id: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258295746_1003822007",
+      "id": "paragraph_1636258295746_1003822007",
+      "dateCreated": "2021-11-07 04:11:35.746",
+      "dateStarted": "2021-11-07 04:12:12.647",
+      "dateFinished": "2021-11-07 04:12:12.922",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Считаем частоту слов в предложении",
+      "text": "sentences.registerTempTable(\"sentences\")\n\nval wordSentence \u003d spark.sql(\"\"\"\n    SELECT word, sentence_id \n    FROM sentences lateral view explode(Review) tab as word\n    where rlike(word, \u0027[a-z-]{2,}\u0027)\n\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:14:24.247",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[33mwarning: \u001b[0mthere was one deprecation warning; re-run with -deprecation for details\n\u001b[1m\u001b[34mwordSentence\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [word: string, sentence_id: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258326040_1689607548",
+      "id": "paragraph_1636258326040_1689607548",
+      "dateCreated": "2021-11-07 04:12:06.040",
+      "dateStarted": "2021-11-07 04:14:24.267",
+      "dateFinished": "2021-11-07 04:14:24.577",
+      "status": "FINISHED"
+    },
+    {
+      "text": "wordSentence.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:14:39.492",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+-----------+\n|     word|sentence_id|\n+---------+-----------+\n|     nice|          0|\n|    hotel|          0|\n|expensive|          0|\n|  parking|          0|\n|      got|          0|\n+---------+-----------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258448576_932575010",
+      "id": "paragraph_1636258448576_932575010",
+      "dateCreated": "2021-11-07 04:14:08.576",
+      "dateStarted": "2021-11-07 04:14:39.513",
+      "dateFinished": "2021-11-07 04:14:39.912",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val sentenceLength \u003d wordSentence.groupBy(\"sentence_id\").agg(count(col(\"word\")).as(\"total_words\"))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:15:25.632",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msentenceLength\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [sentence_id: bigint, total_words: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258474184_1623849339",
+      "id": "paragraph_1636258474184_1623849339",
+      "dateCreated": "2021-11-07 04:14:34.184",
+      "dateStarted": "2021-11-07 04:15:25.654",
+      "dateFinished": "2021-11-07 04:15:26.018",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val wordFreq \u003d wordSentenceword.groupBy(\"word\", \"sentence_id\").count().orderBy(desc(\"count\")).cache()",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:16:40.245",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mwordFreq\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [word: string, sentence_id: bigint ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258525646_1574093207",
+      "id": "paragraph_1636258525646_1574093207",
+      "dateCreated": "2021-11-07 04:15:25.647",
+      "dateStarted": "2021-11-07 04:16:35.322",
+      "dateFinished": "2021-11-07 04:16:35.763",
+      "status": "FINISHED"
+    },
+    {
+      "text": "wordFreq.show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:16:47.540",
+      "progress": 97,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------+-----------+-----+\n|  word|sentence_id|count|\n+------+-----------+-----+\n|   the|17179869748|   46|\n|   did|17179873409|   37|\n| hotel|25769804150|   35|\n| hotel|25769804528|   34|\n|  food|17179874263|   33|\n|    rs|17179869748|   29|\n|   not|17179874324|   29|\n|   not|25769804150|   29|\n|   not|17179874549|   27|\n|  room|       1797|   27|\n|   did| 8589934833|   27|\n|   not| 8589934640|   27|\n|  room| 8589935084|   27|\n|   yes|17179869748|   27|\n|  just|17179869748|   27|\n|  club| 8589935084|   26|\n|   did|25769804150|   26|\n| great|17179873409|   25|\n|really|17179873409|   24|\n|   not|17179871513|   24|\n+------+-----------+-----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d6"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d7"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258567846_468502508",
+      "id": "paragraph_1636258567846_468502508",
+      "dateCreated": "2021-11-07 04:16:07.846",
+      "dateStarted": "2021-11-07 04:16:47.566",
+      "dateFinished": "2021-11-07 04:16:56.392",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val tf \u003d wordFreq\n            .join(sentenceLength, \"sentence_id\")\n            .select(col(\"sentence_id\"), col(\"word\"), (col(\"count\") / col(\"total_words\"))\n            .as(\"tf\"))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:18:21.219",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [sentence_id: bigint, word: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258607564_134922897",
+      "id": "paragraph_1636258607564_134922897",
+      "dateCreated": "2021-11-07 04:16:47.564",
+      "dateStarted": "2021-11-07 04:18:21.240",
+      "dateFinished": "2021-11-07 04:18:21.590",
+      "status": "FINISHED"
+    },
+    {
+      "text": "tf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:18:27.455",
+      "progress": 20,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+------------+--------------------+\n|sentence_id|        word|                  tf|\n+-----------+------------+--------------------+\n|         26|    shopping|0.023809523809523808|\n|         26|      anywho|0.023809523809523808|\n|         26|       clean|0.023809523809523808|\n|         26|        stay|0.023809523809523808|\n|         26|        vibe|0.023809523809523808|\n|         26|     enjoyed|0.023809523809523808|\n|         26|      really|0.023809523809523808|\n|         26|       think|0.023809523809523808|\n|         26|   christmas|0.023809523809523808|\n|         26|      lights|0.023809523809523808|\n|         26|       lever|0.023809523809523808|\n|         26|     contact|0.023809523809523808|\n|         26|        well|0.023809523809523808|\n|         26|       hotel|0.023809523809523808|\n|         26|expectations|0.023809523809523808|\n|         26|   overnight|0.023809523809523808|\n|         26|    exceeded|0.023809523809523808|\n|         26|      getway|0.023809523809523808|\n|         26|       going|0.023809523809523808|\n|         26|      creepy|0.023809523809523808|\n+-----------+------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d8"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d9"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258687443_356382078",
+      "id": "paragraph_1636258687443_356382078",
+      "dateCreated": "2021-11-07 04:18:07.443",
+      "dateStarted": "2021-11-07 04:18:27.477",
+      "dateFinished": "2021-11-07 04:18:33.260",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val totalSentences \u003d wordSentence\n                        .select(countDistinct(\"sentence_id\"))\n                        .first()\n                        .getLong(0)\nval topNFreq \u003d 100",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:22:36.097",
+      "progress": 99,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtotalSentences\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 20491\n\u001b[1m\u001b[34mtopNFreq\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 100\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d12"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258707476_4796427",
+      "id": "paragraph_1636258707476_4796427",
+      "dateCreated": "2021-11-07 04:18:27.476",
+      "dateStarted": "2021-11-07 04:21:07.652",
+      "dateFinished": "2021-11-07 04:21:10.188",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val docFreq \u003d wordSentence\n                .groupBy(\"word\")\n                .agg(countDistinct(\"sentence_id\").as(\"df\"))\n                .orderBy(desc(\"df\"))\n                .limit(topNFreq).withColumn(\"total_sentences\", lit(totalSentences))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:22:14.459",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdocFreq\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [word: string, df: bigint ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258839895_14644779",
+      "id": "paragraph_1636258839895_14644779",
+      "dateCreated": "2021-11-07 04:20:39.895",
+      "dateStarted": "2021-11-07 04:22:14.480",
+      "dateFinished": "2021-11-07 04:22:14.779",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val tfIdf \u003d tf\n                .join(docFreq, \"word\")\n                .select(col(\"sentence_id\"), col(\"word\"), (col(\"tf\") * log(col(\"total_sentences\") / col(\"df\"))).as(\"tf_idf\"))",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:23:21.541",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtfIdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [sentence_id: bigint, word: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258924520_1302420564",
+      "id": "paragraph_1636258924520_1302420564",
+      "dateCreated": "2021-11-07 04:22:04.520",
+      "dateStarted": "2021-11-07 04:23:21.569",
+      "dateFinished": "2021-11-07 04:23:21.899",
+      "status": "FINISHED"
+    },
+    {
+      "text": "val tfIdfMatrix \u003d tfIdf\n                    .groupBy(\"sentence_id\")\n                    .pivot(\"word\")\n                    .max(\"tf_idf\")\n                    .na.fill(0)",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:24:02.894",
+      "progress": 50,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtfIdfMatrix\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [sentence_id: bigint, area: double ... 99 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d13"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d14"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d15"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636258991764_1841126307",
+      "id": "paragraph_1636258991764_1841126307",
+      "dateCreated": "2021-11-07 04:23:11.765",
+      "dateStarted": "2021-11-07 04:24:02.921",
+      "dateFinished": "2021-11-07 04:24:20.871",
+      "status": "FINISHED"
+    },
+    {
+      "text": "tfIdfMatrix.show(5, 50, true)",
+      "user": "anonymous",
+      "dateUpdated": "2021-11-07 04:26:30.954",
+      "progress": 5,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "-RECORD 0----------------------------\n sentence_id | 26                    \n area        | 0.0                   \n arrived     | 0.0                   \n away        | 0.0                   \n bad         | 0.0                   \n bar         | 0.0                   \n bathroom    | 0.036856488781720646  \n beach       | 0.0                   \n beautiful   | 0.0                   \n bed         | 0.0                   \n beds        | 0.0                   \n best        | 0.0                   \n better      | 0.0                   \n big         | 0.0                   \n bit         | 0.0                   \n booked      | 0.0                   \n breakfast   | 0.0                   \n buffet      | 0.0                   \n check       | 0.0                   \n city        | 0.0                   \n clean       | 0.02301198244868942   \n close       | 0.0                   \n comfortable | 0.0                   \n day         | 0.0                   \n days        | 0.04747486117908146   \n definitely  | 0.0                   \n desk        | 0.0                   \n did         | 0.0                   \n excellent   | 0.0                   \n experience  | 0.0                   \n fantastic   | 0.0                   \n floor       | 0.0                   \n food        | 0.0                   \n free        | 0.0                   \n friendly    | 0.05854255447041177   \n going       | 0.0491724725501497    \n good        | 0.0                   \n got         | 0.0                   \n great       | 0.0                   \n helpful     | 0.0                   \n hotel       | 0.005302486441060542  \n hotels      | 0.0                   \n just        | 0.0                   \n large       | 0.0                   \n like        | 0.0                   \n little      | 0.0                   \n lobby       | 0.0                   \n location    | 0.0                   \n loved       | 0.049719415776956044  \n lovely      | 0.0                   \n make        | 0.0                   \n minutes     | 0.0                   \n morning     | 0.0                   \n need        | 0.0                   \n new         | 0.0                   \n nice        | 0.0                   \n night       | 0.0                   \n nights      | 0.0                   \n no          | 0.0                   \n not         | 0.0                   \n overall     | 0.0                   \n people      | 0.0                   \n perfect     | 0.0                   \n place       | 0.0                   \n pool        | 0.0                   \n price       | 0.0                   \n problem     | 0.0                   \n quiet       | 0.0                   \n quite       | 0.0                   \n really      | 0.03409952745351688   \n recommend   | 0.0                   \n resort      | 0.0                   \n restaurant  | 0.0                   \n restaurants | 0.0                   \n reviews     | 0.0                   \n right       | 0.0                   \n room        | 0.008728642037971275  \n rooms       | 0.0                   \n say         | 0.0                   \n service     | 0.027781373047571355  \n shower      | 0.0                   \n small       | 0.0                   \n staff       | 0.013204804334656166  \n stay        | 0.016628158726783044  \n stayed      | 0.020757969658755086  \n street      | 0.0                   \n the         | 0.0                   \n think       | 0.05153082513355881   \n time        | 0.0                   \n times       | 0.0                   \n took        | 0.0                   \n trip        | 0.0                   \n use         | 0.0                   \n view        | 0.0                   \n walk        | 0.0                   \n walking     | 0.0                   \n want        | 0.0                   \n water       | 0.0                   \n way         | 0.0                   \n went        | 0.0                   \n wonderful   | 0.09022531170191259   \n-RECORD 1----------------------------\n sentence_id | 29                    \n area        | 0.04620445218863585   \n arrived     | 0.0                   \n away        | 0.0                   \n bad         | 0.0                   \n bar         | 0.0                   \n bathroom    | 0.0                   \n beach       | 0.0                   \n beautiful   | 0.0                   \n bed         | 0.0                   \n beds        | 0.0                   \n best        | 0.0                   \n better      | 0.0                   \n big         | 0.0                   \n bit         | 0.0                   \n booked      | 0.0                   \n breakfast   | 0.0                   \n buffet      | 0.0                   \n check       | 0.0                   \n city        | 0.0                   \n clean       | 0.028426566554263403  \n close       | 0.0                   \n comfortable | 0.0                   \n day         | 0.0                   \n days        | 0.0                   \n definitely  | 0.0                   \n desk        | 0.0                   \n did         | 0.0                   \n excellent   | 0.04440310071922981   \n experience  | 0.0                   \n fantastic   | 0.0                   \n floor       | 0.0                   \n food        | 0.0                   \n free        | 0.0                   \n friendly    | 0.0                   \n going       | 0.0                   \n good        | 0.06874088230171382   \n got         | 0.0                   \n great       | 0.0                   \n helpful     | 0.0                   \n hotel       | 0.01965039092863613   \n hotels      | 0.0                   \n just        | 0.0                   \n large       | 0.05684622122467515   \n like        | 0.0                   \n little      | 0.0                   \n lobby       | 0.0                   \n location    | 0.02636141565942124   \n loved       | 0.0                   \n lovely      | 0.0                   \n make        | 0.0                   \n minutes     | 0.0                   \n morning     | 0.0                   \n need        | 0.0                   \n new         | 0.0                   \n nice        | 0.0                   \n night       | 0.0                   \n nights      | 0.0                   \n no          | 0.0                   \n not         | 0.01536015169372379   \n overall     | 0.06222845925631793   \n people      | 0.0                   \n perfect     | 0.0                   \n place       | 0.03940343153411776   \n pool        | 0.0                   \n price       | 0.0                   \n problem     | 0.0                   \n quiet       | 0.0                   \n quite       | 0.0                   \n really      | 0.0                   \n recommend   | 0.04625283249632335   \n resort      | 0.0                   \n restaurant  | 0.0                   \n restaurants | 0.0                   \n reviews     | 0.0                   \n right       | 0.0                   \n room        | 0.0                   \n rooms       | 0.025769469551340924  \n say         | 0.0                   \n service     | 0.0                   \n shower      | 0.0                   \n small       | 0.0                   \n staff       | 0.0                   \n stay        | 0.0                   \n stayed      | 0.0                   \n street      | 0.058205958515388886  \n the         | 0.0                   \n think       | 0.0                   \n time        | 0.0                   \n times       | 0.0                   \n took        | 0.0                   \n trip        | 0.0                   \n use         | 0.0                   \n view        | 0.0                   \n walk        | 0.0                   \n walking     | 0.0                   \n want        | 0.0                   \n water       | 0.0                   \n way         | 0.0                   \n went        | 0.0                   \n wonderful   | 0.0                   \n-RECORD 2----------------------------\n sentence_id | 474                   \n area        | 0.0                   \n arrived     | 0.0                   \n away        | 0.0                   \n bad         | 0.0                   \n bar         | 0.0                   \n bathroom    | 0.0                   \n beach       | 0.0                   \n beautiful   | 0.0                   \n bed         | 0.0                   \n beds        | 0.0                   \n best        | 0.0                   \n better      | 0.0                   \n big         | 0.0                   \n bit         | 0.0                   \n booked      | 0.016556589958485957  \n breakfast   | 0.00908294899928728   \n buffet      | 0.0                   \n check       | 0.0                   \n city        | 0.0                   \n clean       | 0.008629493418258532  \n close       | 0.0                   \n comfortable | 0.014696580838620016  \n day         | 0.0                   \n days        | 0.0                   \n definitely  | 0.0                   \n desk        | 0.0                   \n did         | 0.0                   \n excellent   | 0.01347951271833762   \n experience  | 0.0                   \n fantastic   | 0.0                   \n floor       | 0.0                   \n food        | 0.0                   \n free        | 0.0                   \n friendly    | 0.0                   \n going       | 0.0                   \n good        | 0.0                   \n got         | 0.0                   \n great       | 0.016355656558369607  \n helpful     | 0.0                   \n hotel       | 0.0019884324153977033 \n hotels      | 0.0                   \n just        | 0.0                   \n large       | 0.0                   \n like        | 0.0                   \n little      | 0.0                   \n lobby       | 0.0                   \n location    | 0.008002572610895733  \n loved       | 0.0                   \n lovely      | 0.0                   \n make        | 0.0                   \n minutes     | 0.0                   \n morning     | 0.0                   \n need        | 0.0                   \n new         | 0.0                   \n nice        | 0.0                   \n night       | 0.009995726600164503  \n nights      | 0.0                   \n no          | 0.0                   \n not         | 0.0                   \n overall     | 0.0                   \n people      | 0.0                   \n perfect     | 0.019132604898944056  \n place       | 0.0                   \n pool        | 0.0                   \n price       | 0.0                   \n problem     | 0.0                   \n quiet       | 0.018754465558785904  \n quite       | 0.0                   \n really      | 0.0                   \n recommend   | 0.0                   \n resort      | 0.0                   \n restaurant  | 0.0                   \n restaurants | 0.014604405418798908  \n reviews     | 0.0                   \n right       | 0.0                   \n room        | 0.0032732407642392285 \n rooms       | 0.007822874685228494  \n say         | 0.0                   \n service     | 0.0                   \n shower      | 0.0                   \n small       | 0.0                   \n staff       | 0.0                   \n stay        | 0.006235559522543642  \n stayed      | 0.007784238622033157  \n street      | 0.0                   \n the         | 0.0                   \n think       | 0.0                   \n time        | 0.0                   \n times       | 0.0                   \n took        | 0.0                   \n trip        | 0.0                   \n use         | 0.0                   \n view        | 0.0                   \n walk        | 0.0                   \n walking     | 0.0                   \n want        | 0.0                   \n water       | 0.0                   \n way         | 0.0                   \n went        | 0.0                   \n wonderful   | 0.0                   \n-RECORD 3----------------------------\n sentence_id | 964                   \n area        | 0.018266876446669987  \n arrived     | 0.0                   \n away        | 0.021027237845634185  \n bad         | 0.0                   \n bar         | 0.0                   \n bathroom    | 0.0                   \n beach       | 0.0                   \n beautiful   | 0.0                   \n bed         | 0.0                   \n beds        | 0.025421016919244237  \n best        | 0.0                   \n better      | 0.0                   \n big         | 0.0                   \n bit         | 0.0                   \n booked      | 0.0                   \n breakfast   | 0.01182895683628111   \n buffet      | 0.0                   \n check       | 0.02202421647035677   \n city        | 0.0                   \n clean       | 0.03371523009924264   \n close       | 0.0                   \n comfortable | 0.0                   \n day         | 0.014339986487792847  \n days        | 0.0                   \n definitely  | 0.0                   \n desk        | 0.0                   \n did         | 0.0                   \n excellent   | 0.0                   \n experience  | 0.0                   \n fantastic   | 0.0                   \n floor       | 0.0                   \n food        | 0.0                   \n free        | 0.02172633512826958   \n friendly    | 0.01429527492882148   \n going       | 0.0                   \n good        | 0.0                   \n got         | 0.0                   \n great       | 0.0                   \n helpful     | 0.0                   \n hotel       | 0.007768759204344515  \n hotels      | 0.0                   \n just        | 0.0                   \n large       | 0.0                   \n like        | 0.0                   \n little      | 0.0                   \n lobby       | 0.0                   \n location    | 0.020843910056286562  \n loved       | 0.0                   \n lovely      | 0.0                   \n make        | 0.0                   \n minutes     | 0.0                   \n morning     | 0.0                   \n need        | 0.0                   \n new         | 0.0                   \n nice        | 0.0                   \n night       | 0.0                   \n nights      | 0.0                   \n no          | 0.0                   \n not         | 0.0                   \n overall     | 0.0                   \n people      | 0.0                   \n perfect     | 0.07475064239587445   \n place       | 0.015578100839069811  \n pool        | 0.0                   \n price       | 0.0                   \n problem     | 0.025043325198675647  \n quiet       | 0.0                   \n quite       | 0.0                   \n really      | 0.0                   \n recommend   | 0.01828600354505807   \n resort      | 0.0                   \n restaurant  | 0.0                   \n restaurants | 0.0                   \n reviews     | 0.0                   \n right       | 0.0                   \n room        | 0.00852565036266962   \n rooms       | 0.0                   \n say         | 0.0                   \n service     | 0.0                   \n shower      | 0.0                   \n small       | 0.016669904564176125  \n staff       | 0.006448857930878593  \n stay        | 0.0                   \n stayed      | 0.0                   \n street      | 0.023011658017711885  \n the         | 0.03394251244517009   \n think       | 0.0                   \n time        | 0.04123737878839136   \n times       | 0.0                   \n took        | 0.02543112374906502   \n trip        | 0.0                   \n use         | 0.0                   \n view        | 0.0                   \n walk        | 0.0                   \n walking     | 0.0                   \n want        | 0.0                   \n water       | 0.0                   \n way         | 0.0                   \n went        | 0.0                   \n wonderful   | 0.0                   \n-RECORD 4----------------------------\n sentence_id | 1677                  \n area        | 0.0523650458137873    \n arrived     | 0.0                   \n away        | 0.0                   \n bad         | 0.018401392125643762  \n bar         | 0.014074498987210695  \n bathroom    | 0.012899771073602226  \n beach       | 0.0                   \n beautiful   | 0.0                   \n bed         | 0.01390667151123644   \n beds        | 0.0                   \n best        | 0.0                   \n better      | 0.0                   \n big         | 0.017634771291597108  \n bit         | 0.0                   \n booked      | 0.0                   \n breakfast   | 0.008477419066001463  \n buffet      | 0.017255393161952834  \n check       | 0.0                   \n city        | 0.015792134736410102  \n clean       | 0.008054193857041297  \n close       | 0.0                   \n comfortable | 0.013716808782712015  \n day         | 0.01027699031625154   \n days        | 0.0                   \n definitely  | 0.0                   \n desk        | 0.015362391150245956  \n did         | 0.0                   \n excellent   | 0.0                   \n experience  | 0.016855568290318056  \n fantastic   | 0.0                   \n floor       | 0.0                   \n food        | 0.0                   \n free        | 0.015570540175259865  \n friendly    | 0.0                   \n going       | 0.0                   \n good        | 0.006492194439606305  \n got         | 0.0                   \n great       | 0.0                   \n helpful     | 0.0                   \n hotel       | 0.009279351271855949  \n hotels      | 0.0                   \n just        | 0.0                   \n large       | 0.0                   \n like        | 0.0                   \n little      | 0.0                   \n lobby       | 0.017133736500109895  \n location    | 0.0                   \n loved       | 0.0                   \n lovely      | 0.0                   \n make        | 0.0                   \n minutes     | 0.0                   \n morning     | 0.0                   \n need        | 0.0                   \n new         | 0.0                   \n nice        | 0.0                   \n night       | 0.0                   \n nights      | 0.0                   \n no          | 0.018150737199888394  \n not         | 0.02611225787933044   \n overall     | 0.0                   \n people      | 0.0                   \n perfect     | 0.0                   \n place       | 0.011164305601333364  \n pool        | 0.0                   \n price       | 0.0                   \n problem     | 0.0                   \n quiet       | 0.0                   \n quite       | 0.0                   \n really      | 0.0                   \n recommend   | 0.0                   \n resort      | 0.0                   \n restaurant  | 0.0                   \n restaurants | 0.0                   \n reviews     | 0.0                   \n right       | 0.0                   \n room        | 0.006110049426579893  \n rooms       | 0.007301349706213261  \n say         | 0.0                   \n service     | 0.0                   \n shower      | 0.0                   \n small       | 0.011946764937659556  \n staff       | 0.0                   \n stay        | 0.0                   \n stayed      | 0.0                   \n street      | 0.0                   \n the         | 0.0                   \n think       | 0.0                   \n time        | 0.019702303198898093  \n times       | 0.0                   \n took        | 0.0                   \n trip        | 0.0                   \n use         | 0.0                   \n view        | 0.0                   \n walk        | 0.024385085060987854  \n walking     | 0.0                   \n want        | 0.015594285640115406  \n water       | 0.0                   \n way         | 0.0                   \n went        | 0.0                   \n wonderful   | 0.0                   \nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d22"
+            },
+            {
+              "jobUrl": "http://a8b7c3e3ed71:4040/jobs/job?id\u003d23"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636259036519_93814933",
+      "id": "paragraph_1636259036519_93814933",
+      "dateCreated": "2021-11-07 04:23:56.519",
+      "dateStarted": "2021-11-07 04:26:31.258",
+      "dateFinished": "2021-11-07 04:26:44.238",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636259072940_254583192",
+      "id": "paragraph_1636259072940_254583192",
+      "dateCreated": "2021-11-07 04:24:32.940",
+      "status": "READY"
+    }
+  ],
+  "name": "HW-4 TFIDF",
+  "id": "2GMUVDXUE",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
